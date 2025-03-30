@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Segment Looper",
+  "version": "1.0",
+  "description": "Repeat specific chunks of YouTube videos seamlessly",
+  "permissions": ["activeTab", "scripting", "tabs"],
+  "host_permissions": [
+    "*://*.youtube.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*watch*"],
+      "js": ["content.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
